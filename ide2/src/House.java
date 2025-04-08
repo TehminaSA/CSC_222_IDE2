@@ -18,10 +18,30 @@ public class House {
         this.downPayment = downPayment;
         this.mortgageRate = mortgageRate;
     }
-    
-    //Calculating monthly mortgage
-    //Calculating the total cost of the house
 
+    //Calculating monthly mortgage
+    public double calculateMortgagePayment() {
+        if (mortgageRate == 0) || (downPayment == 0){
+            return 0;
+        }
+        double principal = price - downPayment;
+        double monthlyRate = mortgageRate / 100 /12;
+        int loanTerm= 30* 12;
+        double monthlyPayment= (principal*monthlyRate)/(1- Math.pow( 1 + monthlyRate, -loanTerm));
+        return monthlyPayment;
+
+    }
+    //Calculating the total cost of the house
+public double calculateTotalCost() {
+    double monthlyPayment = calculateMortgagePayment();
+    if (monthlyPayment == 0) {
+        return 0;
+    } else {
+        int loanTerm= 30 * 12;
+        return (monthlyPayment * loanTerm) + downPayment;
+    }
+
+    //Print house details
 
     //Setter and Getter for properties
     public String getAddress() {
