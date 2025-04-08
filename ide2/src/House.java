@@ -21,7 +21,7 @@ public class House {
 
     //Calculating monthly mortgage
     public double calculateMortgagePayment() {
-        if (mortgageRate == 0) || (downPayment == 0){
+        if (mortgageRate == 0) || (downPayment == 0) {
             return 0;
         }
         double principal = price - downPayment;
@@ -29,7 +29,6 @@ public class House {
         int loanTerm= 30* 12;
         double monthlyPayment= (principal*monthlyRate)/(1- Math.pow( 1 + monthlyRate, -loanTerm));
         return monthlyPayment;
-
     }
     //Calculating the total cost of the house
 public double calculateTotalCost() {
@@ -37,11 +36,26 @@ public double calculateTotalCost() {
     if (monthlyPayment == 0) {
         return 0;
     } else {
-        int loanTerm= 30 * 12;
-        return (monthlyPayment * loanTerm) + downPayment;
+        int loanTerm = 30 * 12;
+        return monthlyPayment * loanTerm + downPayment;
     }
+}
 
     //Print house details
+
+    public void printHouseDetails() {
+        if (mortgageRate == 0) ||(downPayment == 0) {
+            System.out.println("N/A");
+        } else {
+            System.out.println("Address: " + address);
+            System.out.println("Price: " + price);
+            System.out.println("Down Payment: $" + downPayment);
+            System.out.println("Mortgage Rate: " + mortgageRate + "%");
+            System.out.println("Mortgage Payment: $" + calculateMortgagePayment());
+            System.out.println("Total Cost: $" + calculateTotalCost());
+        }
+    }
+
 
     //Setter and Getter for properties
     public String getAddress() {
@@ -70,6 +84,5 @@ public double calculateTotalCost() {
     }
 
 }// ends main
-
 
 
