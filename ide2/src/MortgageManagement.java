@@ -30,6 +30,7 @@ public class MortgageManagement {
             switch (choice) {
                 //cases for different menu options
                 case 1:
+                    //Add house with Address and Price only
                     System.out.print("Enter house address: ");
                     address = scanner.nextLine();
                     System.out.print("Enter house price: ");
@@ -41,6 +42,7 @@ public class MortgageManagement {
                     System.out.println(" ");
                     break;
                 case 2:
+                    //Add house with Full details
                     System.out.print("Enter house address: ");
                     address = scanner.nextLine();
                     System.out.print("Enter house price: ");
@@ -56,6 +58,7 @@ public class MortgageManagement {
                     System.out.println(" ");
                     break;
                 case 3:
+                    //Displaying All Houses
                     if (houses.isEmpty()) {
                         System.out.println("No houses to display.");
                     } else {
@@ -66,6 +69,7 @@ public class MortgageManagement {
                     }
                     break;
                 case 4:
+                    // Code for Updating Houses
                     System.out.print("Enter house address to update: ");
                     address = scanner.nextLine();
                     boolean found = false;
@@ -89,19 +93,21 @@ public class MortgageManagement {
                             };
                             break;
                         }
+                    //Error Handling for when input doesn't Match
                     if (!found) {
                         System.out.println("House not found.");
                     };
                     break;
 
                 case 5:
+                    //Exit program
                     System.out.println("Exiting the Real Estate Management System.");
                     scanner.close();
                     return;
                 default:
                     System.out.println("Invalid choice. Please try Again try again.");
                     break;
-            }
-        }
-    }
-}
+            }//switch ends
+        }//ends while(true)
+    }//ends main
+}//ends Mortgage management class
